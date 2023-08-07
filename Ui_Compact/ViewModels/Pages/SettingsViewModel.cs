@@ -28,7 +28,7 @@ namespace Ui_Compact.ViewModels.Pages
         private void InitializeViewModel()
         {
             CurrentTheme = Wpf.Ui.Appearance.Theme.GetAppTheme();
-            AppVersion = $"Ui_Compact - {GetAssemblyVersion()}";
+            AppVersion = $"Version : {GetAssemblyVersion()}";
 
             _isInitialized = true;
         }

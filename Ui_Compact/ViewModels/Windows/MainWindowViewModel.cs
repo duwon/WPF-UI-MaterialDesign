@@ -12,7 +12,7 @@ namespace Ui_Compact.ViewModels.Windows
     public partial class MainWindowViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string _applicationTitle = "WPF UI - Ui_Compact";
+        private string _applicationTitle = "WPF Templete";
 
         [ObservableProperty]
         private ObservableCollection<object> _menuItems = new()
