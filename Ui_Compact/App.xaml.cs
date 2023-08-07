@@ -48,6 +48,9 @@ namespace Ui_Compact
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
 
+                services.AddSingleton<TestPage>();
+                services.AddSingleton<TestViewModel>();
+
             }).Build();
 
         /// <summary>

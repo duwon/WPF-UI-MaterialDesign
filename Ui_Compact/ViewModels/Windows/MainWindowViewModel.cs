@@ -29,6 +29,13 @@ namespace Ui_Compact.ViewModels.Windows
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
                 TargetPageType = typeof(Views.Pages.DataPage)
             }
+            ,
+            new NavigationViewItem()
+            {
+                Content = "Test",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.Temperature24 },
+                TargetPageType = typeof(Views.Pages.TestPage)
+            }
         };
 
         [ObservableProperty]
