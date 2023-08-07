@@ -20,11 +20,11 @@ namespace Ui_Compact.Views.Pages
     /// <summary>
     /// TestPage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class TestPage : INavigableView<SettingsViewModel>
+    public partial class TestPage : INavigableView<TestViewModel>
     {
-        public SettingsViewModel ViewModel { get; }
+        public TestViewModel ViewModel { get; }
 
-        public TestPage(SettingsViewModel viewModel)
+        public TestPage(TestViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = this;
