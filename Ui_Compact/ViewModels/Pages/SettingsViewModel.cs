@@ -3,6 +3,7 @@
 // Copyright (C) Leszek Pomianowski and WPF UI Contributors.
 // All Rights Reserved.
 
+using MaterialDesignThemes.Wpf;
 using Wpf.Ui.Controls;
 
 namespace Ui_Compact.ViewModels.Pages
@@ -39,17 +40,27 @@ namespace Ui_Compact.ViewModels.Pages
                 ?? String.Empty;
         }
 
+
         [RelayCommand]
         private void OnChangeTheme(string parameter)
         {
+            // Mateiraldesign theme
+            var paletteHelper = new PaletteHelper();
+            var theme = paletteHelper.GetTheme();
+
             switch (parameter)
             {
                 case "theme_light":
                     if (CurrentTheme == Wpf.Ui.Appearance.ThemeType.Light)
                         break;
 
+                    // WPF-UI
                     Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Light);
                     CurrentTheme = Wpf.Ui.Appearance.ThemeType.Light;
+
+                    // MaterialDesignTheme
+                    theme.SetBaseTheme(Theme.Light);
+                    paletteHelper.SetTheme(theme);
 
                     break;
 
@@ -57,8 +68,13 @@ namespace Ui_Compact.ViewModels.Pages
                     if (CurrentTheme == Wpf.Ui.Appearance.ThemeType.Dark)
                         break;
 
+                    // WPF-UI
                     Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Dark);
                     CurrentTheme = Wpf.Ui.Appearance.ThemeType.Dark;
+
+                    // MaterialDesignTheme
+                    theme.SetBaseTheme(Theme.Dark);
+                    paletteHelper.SetTheme(theme);
 
                     break;
             }
