@@ -50,6 +50,8 @@ namespace Ui_Compact
 
                 services.AddSingleton<TestPage>();
                 services.AddSingleton<TestViewModel>();
+                services.AddSingleton<SerialPortPage>();
+                services.AddSingleton<SerialPortViewModel>();
 
             }).Build();
 

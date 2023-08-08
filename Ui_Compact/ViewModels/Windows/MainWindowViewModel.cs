@@ -28,13 +28,18 @@ namespace Ui_Compact.ViewModels.Windows
                 Content = "Data",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
                 TargetPageType = typeof(Views.Pages.DataPage)
-            }
-            ,
+            },
             new NavigationViewItem()
             {
                 Content = "Test",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Temperature24 },
                 TargetPageType = typeof(Views.Pages.TestPage)
+            },
+            new NavigationViewItem()
+            {
+                Content = "SerialPort",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.SerialPort24 },
+                TargetPageType = typeof(Views.Pages.SerialPortPage)
             }
         };
 
@@ -54,5 +59,8 @@ namespace Ui_Compact.ViewModels.Windows
         {
             new MenuItem { Header = "Home", Tag = "tray_home" }
         };
+
+        [ObservableProperty]
+        private bool _isRightDrawer = false;
     }
 }

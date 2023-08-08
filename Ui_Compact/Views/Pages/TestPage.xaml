@@ -44,7 +44,7 @@
                             <TextBlock
                                 Margin="0"
                                 Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
-                                Text="E.T. the Extra-Terrestrial" />
+                                Text="{Binding ViewModel.PageTitle}" />
                             <Viewbox
                                 Height="16"
                                 Margin="0,4,0,8"

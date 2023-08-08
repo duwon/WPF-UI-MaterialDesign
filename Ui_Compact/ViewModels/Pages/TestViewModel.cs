@@ -25,6 +25,9 @@ namespace Ui_Compact.ViewModels.Pages
         {
             _isInitialized = true;
         }
+
+        [ObservableProperty]
+        private string _pageTitle = "TestPage";
     }
 }
 
