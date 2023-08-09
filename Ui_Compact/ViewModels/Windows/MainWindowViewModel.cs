@@ -40,6 +40,12 @@ namespace Ui_Compact.ViewModels.Windows
                 Content = "SerialPort",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.SerialPort24 },
                 TargetPageType = typeof(Views.Pages.SerialPortPage)
+            },
+            new NavigationViewItem()
+            {
+                Content = "DebugMessage",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.Calculator24 },
+                TargetPageType = typeof(Views.Pages.DebugMessagePage)
             }
         };
 

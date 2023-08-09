@@ -16,8 +16,8 @@
 
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <WrapPanel>
-                <materialDesign:Card Width="220">
+            <WrapPanel Margin="5">
+                <materialDesign:Card Width="220" Margin="5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="140" />
@@ -116,6 +116,16 @@
                                 Style="{StaticResource MaterialDesignFlatButton}" />
                         </StackPanel>
                     </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card
+                    Width="220"
+                    Margin="5"
+                    VerticalAlignment="Top">
+                    <StackPanel>
+                        <Button Command="{Binding ViewModel.DebugMessageCommand}" Content="테스트1" />
+                        <TextBlock Text="{Binding ViewModel.DebugMessage}" />
+                    </StackPanel>
+
                 </materialDesign:Card>
             </WrapPanel>
         </ScrollViewer>

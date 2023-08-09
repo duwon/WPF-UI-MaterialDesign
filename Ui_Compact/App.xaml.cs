@@ -13,7 +13,6 @@ using Ui_Compact.Services;
 using Ui_Compact.ViewModels.Pages;
 using Ui_Compact.ViewModels.Windows;
 using Ui_Compact.Views.Pages;
-using Ui_Compact.Views.UserControls;
 using Ui_Compact.Views.Windows;
 
 namespace Ui_Compact
@@ -52,6 +51,9 @@ namespace Ui_Compact
                 services.AddSingleton<TestViewModel>();
                 services.AddSingleton<SerialPortPage>();
                 services.AddSingleton<SerialPortViewModel>();
+
+                services.AddSingleton<IDebugMessageViewModel, DebugMessageViewModel>();
+                services.AddSingleton<DebugMessagePage>();
 
             }).Build();
 

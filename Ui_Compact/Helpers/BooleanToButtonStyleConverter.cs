@@ -24,7 +24,7 @@ namespace Ui_Compact.Helpers
 
             if(IsOn)
             {
-                style = (Style)App.Current.FindResource("MaterialDesignRaisedLightButton");
+                style = (Style)App.Current.FindResource("MaterialDesignRaisedSecondaryLightButton");
             }
             else
             {
