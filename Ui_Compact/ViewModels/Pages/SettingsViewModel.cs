@@ -3,7 +3,9 @@
 // Copyright (C) Leszek Pomianowski and WPF UI Contributors.
 // All Rights Reserved.
 
+using CommunityToolkit.Mvvm.Messaging;
 using MaterialDesignThemes.Wpf;
+using Ui_Compact.Message;
 using Wpf.Ui.Controls;
 
 namespace Ui_Compact.ViewModels.Pages
@@ -77,6 +79,18 @@ namespace Ui_Compact.ViewModels.Pages
                     paletteHelper.SetTheme(theme);
 
                     break;
+            }
+        }
+
+        private bool isRightDrawer = false;
+
+        public bool IsRightDrawer
+        {
+            get => isRightDrawer;
+            set
+            {
+                WeakReferenceMessenger.Default.Send(new IsRightDrawerChangeMessage(!IsRightDrawer));
+                SetProperty(ref isRightDrawer, value);
             }
         }
     }

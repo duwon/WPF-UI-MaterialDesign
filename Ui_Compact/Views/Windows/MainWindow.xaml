@@ -22,33 +22,30 @@
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <ui:FluentWindow.InputBindings>
-        <KeyBinding
-            Key="F"
-            Command="{Binding ElementName=AutoSuggestBox, Path=FocusCommand}"
-            Modifiers="Control" />
-    </ui:FluentWindow.InputBindings>
 
     <materialDesign:DialogHost
         DialogTheme="Inherit"
         Identifier="RootDialog"
         SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
 
-        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+        <materialDesign:DrawerHost IsRightDrawerOpen="{Binding ViewModel.IsRightDrawer}" OpenMode="Standard">
+
+            <!--  Layout  -->
             <Grid>
+                <!--  타이틀바  -->
                 <ui:TitleBar
                     x:Name="TitleBar"
                     Title="{Binding ViewModel.ApplicationTitle}"
-                    Grid.Row="0"
                     CloseWindowByDoubleClickOnIcon="True" />
 
+                <!--  탐색 컨트롤  -->
                 <ui:NavigationView
                     x:Name="NavigationView"
-                    Padding="10,10,0,0"
-                    BreadcrumbBar="{Binding ElementName=BreadcrumbBar}"
+                    Padding="0,0,0,0"
                     FooterMenuItemsSource="{Binding ViewModel.FooterMenuItems, Mode=OneWay}"
                     FrameMargin="0"
-                    IsBackButtonVisible="Visible"
+                    IsBackButtonVisible="Collapsed"
+                    IsPaneOpen="False"
                     IsPaneToggleVisible="True"
                     MenuItemsSource="{Binding ViewModel.MenuItems, Mode=OneWay}"
                     OpenPaneLength="200"
@@ -61,9 +58,26 @@
                     </ui:NavigationView.ContentOverlay>
                 </ui:NavigationView>
 
-                <ContentPresenter x:Name="RootContentDialog" Grid.Row="0" />
+                <ContentPresenter x:Name="RootContentDialog" />
 
+                <!--  MaterialDesign Snackbar 표시  -->
+                <materialDesign:Snackbar x:Name="MainSnackbar" MessageQueue="{materialDesign:MessageQueue}" />
             </Grid>
+
+            <!--  우측 메뉴 Drawer  -->
+            <materialDesign:DrawerHost.RightDrawerContent>
+                <DockPanel MinWidth="220">
+                    <ToggleButton
+                        Margin="16"
+                        HorizontalAlignment="Right"
+                        DockPanel.Dock="Top"
+                        IsChecked="{Binding ViewModel.IsRightDrawer}"
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+
+                    <Frame NavigationUIVisibility="Hidden" />
+                </DockPanel>
+            </materialDesign:DrawerHost.RightDrawerContent>
+
         </materialDesign:DrawerHost>
     </materialDesign:DialogHost>
 </ui:FluentWindow>

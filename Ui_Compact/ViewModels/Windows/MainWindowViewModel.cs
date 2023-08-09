@@ -6,11 +6,22 @@
 using System.Collections.ObjectModel;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using CommunityToolkit.Mvvm.Messaging;
+using Ui_Compact.Message;
 
 namespace Ui_Compact.ViewModels.Windows
 {
     public partial class MainWindowViewModel : ObservableObject
     {
+        public MainWindowViewModel()
+        {
+            // Register a message in some module
+            WeakReferenceMessenger.Default.Register<IsRightDrawerChangeMessage>(this, (r, m) =>
+            {
+                IsRightDrawer = m.Value;
+            });
+        }
+
         [ObservableProperty]
         private string _applicationTitle = "WPF Templete";
 
